@@ -15,6 +15,8 @@ public class TestDataInit {
 
     /**
      * 확인용 초기 데이터 추가
+     * 해당 시점 (ApplicationReadyEvent)에 메소드를 실행
+     * 아래의 경우 스프링부트 시작이 끝난 직후 바로 실행됨
      */
     @EventListener(ApplicationReadyEvent.class)
     public void initData() {
