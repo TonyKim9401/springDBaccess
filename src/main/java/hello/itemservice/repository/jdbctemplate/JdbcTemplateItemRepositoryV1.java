@@ -33,7 +33,7 @@ public class JdbcTemplateItemRepositoryV1 implements ItemRepository {
 
     @Override
     public Item save(Item item) {
-        String sql = "insert into item(item_name, private, quantity) values (?,?,?)";
+        String sql = "insert into item(item_name, price, quantity) values (?,?,?)";
 
         //DB 에서 자동으로 만들어진 id 값을 가져오기 위해 사용
         KeyHolder keyHolder = new GeneratedKeyHolder();
