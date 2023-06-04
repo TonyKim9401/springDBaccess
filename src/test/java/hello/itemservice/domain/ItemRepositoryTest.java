@@ -16,12 +16,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 class ItemRepositoryTest {
 
+    /**
+     * 인터페이스를 기반으로 하는 테스트
+     */
     @Autowired
     ItemRepository itemRepository;
 
     @AfterEach
     void afterEach() {
-        //MemoryItemRepository 의 경우 제한적으로 사용
+        //MemoryItemRepository 의 경우 제한적으로 사용 -> 인터페이스에는 clearStore 메소드가 없음..
         if (itemRepository instanceof MemoryItemRepository) {
             ((MemoryItemRepository) itemRepository).clearStore();
         }
@@ -87,6 +90,7 @@ class ItemRepositoryTest {
 
     void test(String itemName, Integer maxPrice, Item... items) {
         List<Item> result = itemRepository.findAll(new ItemSearchCond(itemName, maxPrice));
+        // items 객체의 순서까지 고려 해야함
         assertThat(result).containsExactly(items);
     }
 }
