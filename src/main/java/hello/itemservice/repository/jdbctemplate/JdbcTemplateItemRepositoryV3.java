@@ -75,7 +75,6 @@ public class JdbcTemplateItemRepositoryV3 implements ItemRepository {
             // 찾는 데이터가 없을시 예외 발생
             return Optional.empty();
         }
-
     }
 
     private RowMapper<Item> itemRowMapper() {
