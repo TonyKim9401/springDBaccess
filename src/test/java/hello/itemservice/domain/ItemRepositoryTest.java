@@ -54,8 +54,6 @@ class ItemRepositoryTest {
     }
 
 
-    @Commit
-    @Rollback(false)
     @Test
     void save() {
         //given
