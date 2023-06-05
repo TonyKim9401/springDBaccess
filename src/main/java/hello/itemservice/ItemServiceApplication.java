@@ -36,7 +36,6 @@ public class ItemServiceApplication {
 
 	/**
 	 * 실행시 jvm 내부에 db를 만들고 저장, 종료시 휘발성으로 전부 날아감
-	 */
 	@Bean
 	@Profile("test")
 	public DataSource dataSource() {
@@ -48,5 +47,6 @@ public class ItemServiceApplication {
 		dataSource.setPassword("");
 		return dataSource;
 	}
+	*/
 
 }
