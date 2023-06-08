@@ -78,7 +78,6 @@ public class JpaItemRepository3 implements ItemRepository {
                             itemNameCheck(itemName, builder),
                             maxPriceCheck(maxPrice, builder)
                     )
-                .lef
                     .fetch();
     }
 
