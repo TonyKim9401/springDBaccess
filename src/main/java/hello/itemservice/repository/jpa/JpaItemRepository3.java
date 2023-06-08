@@ -75,20 +75,20 @@ public class JpaItemRepository3 implements ItemRepository {
         return query.select(item)
                     .from(item)
                     .where(
-                            itemNameCheck(itemName, builder),
-                            maxPriceCheck(maxPrice, builder)
+                            itemNameCheck(itemName),
+                            maxPriceCheck(maxPrice)
                     )
                     .fetch();
     }
 
-    public BooleanExpression maxPriceCheck(Integer maxPrice, BooleanBuilder builder) {
+    public BooleanExpression maxPriceCheck(Integer maxPrice) {
         if (maxPrice != null) {
             return item.price.loe(maxPrice);
         }
         return null;
     }
 
-    public BooleanExpression itemNameCheck(String itemName, BooleanBuilder builder) {
+    public BooleanExpression itemNameCheck(String itemName) {
         if (StringUtils.hasText(itemName)) {
             return item.itemName.like("%" + itemName + "%");
         }
