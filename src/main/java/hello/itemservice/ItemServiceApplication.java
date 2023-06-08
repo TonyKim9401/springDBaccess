@@ -1,6 +1,6 @@
 package hello.itemservice;
 
-import hello.itemservice.config.*;
+import hello.itemservice.config.QuerydslConfig;
 import hello.itemservice.repository.ItemRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -8,9 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Profile;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
-
-import javax.sql.DataSource;
 
 
 //설정 파일 사용
@@ -20,8 +17,11 @@ import javax.sql.DataSource;
 //@Import(JdbcTemplateV3Config.class)
 //@Import(MyBatisConfig.class)
 //@Import(JpaConfig.class)
+//@Import(SpringDataJpaConfig.class)
 
-@Import(SpringDataJpaConfig.class)
+@Import(QuerydslConfig.class)
+
+
 //컴포넌트 스캔
 @SpringBootApplication(scanBasePackages = "hello.itemservice.web")
 @Slf4j
