@@ -31,7 +31,6 @@ public class OrderService {
             log.info("정상 승인");
             order.setPayStatus("완료");
         }
-
         log.info("결제 프로세스 완료");
 
 
