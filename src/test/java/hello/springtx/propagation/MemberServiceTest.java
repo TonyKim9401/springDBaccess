@@ -105,9 +105,12 @@ class MemberServiceTest {
         assertThatThrownBy(() -> memberService.joinV1(username))
                 .isInstanceOf(RuntimeException.class);
 
-        //then 모든 데이터가 롤백됨
+        //then log 모든 데이터가 롤백됨(log에서 롤백이 일어났지만 service에 트랜잭션을 의지함)
         assertTrue(memberRepository.find(username).isEmpty());
         assertTrue(logRepository.find(username).isEmpty());
     }
+
+
+
 
 }
